@@ -10,3 +10,9 @@ func GetUserName() (string, error) {
     output, err := cmd.CombinedOutput()
     return strings.TrimSpace(string(output)), err
 }
+
+func GetUserEmail() (string, error) {
+    cmd := exec.Command("git", "config", "--global", "user.email")
+    output, err := cmd.CombinedOutput()
+    return strings.TrimSpace(string(output)), err
+}
